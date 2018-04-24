@@ -11,27 +11,36 @@
 </head>
 
 <body>
+        <!-- geocities header banner -->
     <h1 style="background-color:darkslategray">
         <img src="assets/images/spinningearth.gif">
         GeoCities - Hangman 
         <img src="assets/images/spinningearth.gif">
-    </h1>        
-    <p>Hello. My name is Thomas Kim. I am 12 years old. I made this hangman game for homework due April 1996.</p>
-    <p> I made this game on my dad's laptop! <img src="assets/images/laptop.gif" width=30px>Hope he doesn't find out!</p>
+    </h1>
+    <!-- Jumbotron description of app-->
+    <div class="jumbotron">
+        <img src="assets/images/90s.jpg" id=sideimage>
+        <p>Nostalgia helps us forget the worst part of the 90s: 28K Dial-up, GeoCities pages, and terrible Batman movies.</p>
+        <p>Back then, Hangman was a game you could play on a 386 running windows 3.1 </p>
+    </div>        
+    
     <br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 style="text-decoration-line: underline">Press any key to get started!</h2>
+                <div id="start">
+                  <h2>Press any key to get started!</h2>  
+                </div>
+                
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 game" style="background-color: darkgrey" id="leftcol">
+        <div class="row" style="margin-left:20%">
+            <div class="col-md-6 game" style="background-color: darkgrey" id="leftcol">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>CURRENT WORD:</h2>
+                        <h2>Guesses left:</h2>
                             <div class="field">
-                                <p>_ _ _ _ _ _ _</p>
+                                <h2 id="guessesleft"></h2>
                             </div>
                     </div>
                     <div class="col-md-12">
@@ -49,27 +58,28 @@
                             <div id="deadeye1">x</div>
                             <div id="deadeye2">x</div>   
                        </div>
-                       
-                       
                     </div>
                 </div>
-                
             </div>
-            <div class="col-md-9" style="padding:0">
+            <div class="col-md-6" style="padding:0">
                    <div class="game" style="padding-top:50px">
-            
-            <h2>Wins:</h2>
+                    <div class= "row">
+                            <div class="col-md-5" style="padding:0">
+                             <h2>Wins:</h2>
+                                <div class="field">
+                                    <h2 id="wins"></h2>
+                                </div>
+                            </div>
+                            <div class="col-md-7" style="padding:0">
+                                    <h2>Guessed already:</h2>
+                                       <div class="field">
+                                           <p id="guessed"></p>
+                                       </div>
+                                   </div>       
+                    </div>
+            <h2>Current Word:</h2>
             <div class="field">
-                <p>__</p>
-            </div>
-            
-            <h2>Number of guesses remaining:</h2>
-            <div class="field">
-                    <p>__</p>
-            </div>
-            <h2>Letters guessed already:</h2>
-            <div class="field">
-                <p>_ _ _ _ _ _ _</p>
+                <p id="currentword"></p>
             </div>
             <br>
         </div>
@@ -78,13 +88,21 @@
         
      
         </div>
-    </div>
-    <br>
-  <p>Best viewed on monitors with resolution of at least 1024 x 768</p>
+        <div class="row">
+                <div class="col-md-12">
+                <div id="bottom">
+        <p><img src="assets/images/laptop.gif" width=30px>Best viewed on a monitor with resolution of at least 1024 x 768<img src="assets/images/laptop.gif" width=30px></p>
     <div style="text-align:center">
         <img src="assets/images/counter.gif" width=100px>
         <img src="assets/images/ns_logo.gif" width=100px>
         <img src="assets/images/ie_logo.gif" width=100px>
+    </div>
+                </div>
+        </div>            
+    </div>
+    <br>
+    
+  
     </div>
 
    <script src="assets/javascript/game.js"></script>
