@@ -1,0 +1,149 @@
+body{
+    background-image: url(http://www.contemporary-home-computing.org/still-there/geocities/dimensions/firebkg02.jpg);
+    background-repeat: repeat;
+}
+
+h1,
+h2,
+p{
+    font-family: "Comic Sans MS", "Comic Sans";
+    color: yellow;
+    text-align:center;
+}
+
+.field{
+    background-color: black;    
+    padding:0;
+    width:50%;
+    margin: 0 auto;
+}
+
+.game{
+    background-color: gray;
+    margin:0 auto;
+    color: black;
+    text-align: center;
+    padding:0;
+    min-height:300px;
+}
+#leftcol{
+    max-width: 180px;
+}
+
+#hangmanpicture{
+    position:relative;
+    margin: 0 auto;
+}
+
+#post{
+    position:absolute;
+    display:block;
+    top:50px;
+    left:50px;
+    width:4px;
+    height:135px;
+    border: 2px solid yellow;
+}
+
+
+#topcrook{
+    position:absolute;
+    display:block;
+    top:50px;
+    left:50px;
+    width:80px;
+    height:4px;
+    border: 2px solid yellow;
+}
+
+#noose{
+    position:absolute;
+    display:block;
+    top:50px;
+    left:130px;
+    width:4px;
+    height:20px;
+    border: 2px solid yellow;
+}
+
+
+#head{
+    position: absolute;
+    display:block;
+    top: 70px;
+    left:110px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    border: 5px solid yellow;
+}
+
+#body{
+    position: absolute;
+    display:block;
+    top: 120px;
+    left:130px;
+    width:6px;
+    height:40px;
+    border: 3px solid yellow;
+}
+
+#leftarm{
+    position: absolute;
+    display:block;
+    top: 135px;
+    left:110px;
+    width:25px;
+    height:6px;
+    border: 3px solid yellow;
+}
+
+#rightarm{
+    position: absolute;
+    display:block;
+    top: 135px;
+    left:130px;
+    width:25px;
+    height:6px;
+    border: 3px solid yellow;
+}
+
+#rightleg{
+    position: absolute;
+    display:block;
+    top: 165px;
+    left:130px;
+    width:25px;
+    height:6px;
+    border: 3px solid yellow;
+    transform: rotate(45deg);
+}
+
+#leftleg{
+    position: absolute;
+    display:block;
+    top: 165px;
+    left:110px;
+    width:25px;
+    height:6px;
+    border: 3px solid yellow;
+    transform: rotate(135deg);
+}
+
+#deadeye1{
+    position: absolute;
+    display:block;
+    top: 68px;
+    left:120px;
+    color: red;
+    font-size: xx-large
+}
+
+#deadeye2{
+    position: absolute;
+    display:block;
+    top: 68px;
+    left:140px;
+    color: red;
+    font-size: xx-large
+}

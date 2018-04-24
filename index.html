@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word-Guess-Game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <h1 style="background-color:darkslategray">
+        <img src="assets/images/spinningearth.gif">
+        GeoCities - Hangman 
+        <img src="assets/images/spinningearth.gif">
+    </h1>        
+    <p>Hello. My name is Thomas Kim. I am 12 years old. I made this hangman game for homework due April 1996.</p>
+    <p> I made this game on my dad's laptop! <img src="assets/images/laptop.gif" width=30px>Hope he doesn't find out!</p>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="text-decoration-line: underline">Press any key to get started!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 game" style="background-color: darkgrey" id="leftcol">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>CURRENT WORD:</h2>
+                            <div class="field">
+                                <p>_ _ _ _ _ _ _</p>
+                            </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h2>Hangman</h2>
+                        <div id="hangman-picture">
+                            <div id="post"></div>
+                            <div id="topcrook"></div>
+                            <div id="noose"></div>
+                            <div id="head"></div>
+                            <div id="body"></div> 
+                            <div id="leftarm"></div>
+                            <div id="rightarm"></div> 
+                            <div id="leftleg"></div>
+                            <div id="rightleg"></div>
+                            <div id="deadeye1">x</div>
+                            <div id="deadeye2">x</div>   
+                       </div>
+                       
+                       
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-9" style="padding:0">
+                   <div class="game" style="padding-top:50px">
+            
+            <h2>Wins:</h2>
+            <div class="field">
+                <p>__</p>
+            </div>
+            
+            <h2>Number of guesses remaining:</h2>
+            <div class="field">
+                    <p>__</p>
+            </div>
+            <h2>Letters guessed already:</h2>
+            <div class="field">
+                <p>_ _ _ _ _ _ _</p>
+            </div>
+            <br>
+        </div>
+            </div>
+
+        
+     
+        </div>
+    </div>
+    <br>
+  <p>Best viewed on monitors with resolution of at least 1024 x 768</p>
+    <div style="text-align:center">
+        <img src="assets/images/counter.gif" width=100px>
+        <img src="assets/images/ns_logo.gif" width=100px>
+        <img src="assets/images/ie_logo.gif" width=100px>
+    </div>
+
+   <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
