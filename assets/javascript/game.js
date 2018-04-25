@@ -172,8 +172,8 @@ document.addEventListener('keyup', function(event) {
     nowPlaying = database90s[random].songinfo;
     document.getElementById("nowplaying").textContent = nowPlaying;
     document.getElementById("nowplayingimage").src = database90s[random].image;
-    // picks a new random number/index to later choose artist
-    random = Math.floor((Math.random()*(database90s.length-1)));
+    // picks a new random number/index for next challenge
+    random = Math.floor((Math.random()*1.1*(database90s.length)));
     // reassign currentword to new random one
     currentWord = database90s[random].array;
     console.log("Answer is " + currentWord.join(""));
@@ -203,7 +203,7 @@ document.addEventListener('keyup', function(event) {
 
       }
     });
-    // event listener for ENTER to reset
+    // end of code bracket for event listener for ENTER to reset
 
     }
 // ***************************************
@@ -216,5 +216,11 @@ document.addEventListener('keyup', function(event) {
 // hint: use below to manipulate DOM
 // *************************************
 // document.onkeyup = function(event){
-//     htmlId.textContent = event.key;
-// }
+//      document.getElementById("htmlId").textContent = event.key;
+// };
+// 
+// or...
+// 
+// document.addEventListener('keyup', function(event) {
+//      document.getElementById("htmlId").textContent = event.key;
+// };
