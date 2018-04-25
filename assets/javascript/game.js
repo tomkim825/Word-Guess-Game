@@ -1,12 +1,4 @@
-// all the words to choose from. 6 artists from the 90s
-// var wordList = [
-// ["M", "C", "H", "A", "M", "M", "E", "R"],
-//   ["H","A","D","D","A","W","A","Y"],
-//   ["R","E","A","L","M","C","C","O","Y"],
-//   ["V","A","N","E","S","S","A","C","A","R","L","T","O","N"],
-//     ["J","A","M","I","R","O","Q","U","A","I"],
-//     ["E","A","G","L","E","E","Y","E","C","H","E","R","R","Y"]
-// ]
+// all the info in object. 6 artists from the 90s
 
 var database90s = [{
   "array":["M", "C", "H", "A", "M", "M", "E", "R"],
@@ -65,8 +57,8 @@ document.getElementById("guessed").textContent = guessed + "--";
 var guessesLeft = 10;
 document.getElementById("guessesleft").textContent= guessesLeft;
 
-// picks a random number/index to later choose artist. Increased chances of last artist by 10%
-var random = Math.floor((Math.random()*1.1*(database90s.length-1))); 
+// picks a random number/index to later choose artist. Increased chances of last artist by 30%
+var random = Math.floor((Math.random()*1.3*(database90s.length-1))); 
 
 // artist chosen using random index. Answer on console log
 var currentWord = database90s[random].array;
@@ -87,15 +79,13 @@ document.getElementById("currentword").textContent = initialBlanks;
 var nowPlaying = "X-Men Animated Series Theme";
 var audio = new Audio('./assets/audio/xmen.mp3#t=2');
 
-// plays get started video
-// var initialAudio = document.getElementById("mccoy"); 
 document.addEventListener('keyup', function(event) {
   if (event.key == "Enter"){
   audio.play();
   document.getElementById("nowplaying").textContent = nowPlaying;
   document.getElementById("nowplayingimage").src = "assets/images/xmen.jpg";
   document.getElementById("nowplayingimage").alt = "90s artist";   
-  document.getElementById("start").textContent = "";  
+  document.getElementById("start").textContent = "";
   }
 });
 // **  ABOVE IS CODE NEEDED FOR INITIAL SETUP OF PAGE **
@@ -187,6 +177,8 @@ document.addEventListener('keyup', function(event) {
 
  
 
+// hint: use below to manipulate DOM
+// *************************************
 // document.onkeyup = function(event){
-//     htmlId.textContent = event.key
+//     htmlId.textContent = event.key;
 // }
