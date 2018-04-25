@@ -7,6 +7,12 @@ var database90s = [{
   "image":"./assets/images/hammer.jpg"
   },
   {
+  "array":["E","A","G","L","E","E","Y","E","C","H","E","R","R","Y"],  
+  "songinfo": "Eagle Eye Cherry - Save Tonight",
+  "audio":"./assets/audio/Eagle.mp3",
+  "image":"./assets/images/eagleeye.jpg"
+  },
+  {
   "array": ["H","A","D","D","A","W","A","Y"],
   "songinfo": "Haddaway - What is love?",
   "audio":"./assets/audio/WhatIsLove.mp3",
@@ -15,7 +21,7 @@ var database90s = [{
   {
   "array":["R","E","A","L","M","C","C","O","Y"],
   "songinfo": "Real McCoy - Another Night",
-  "audio":"./assets/audio/mccoy.mp3#t=2",
+  "audio":"./assets/audio/mccoy.mp3",
   "image":"./assets/images/mccoy.jpg"
   },
   {
@@ -29,12 +35,6 @@ var database90s = [{
   "songinfo": "Jamiroquai - Virtual Insanity",
   "audio":"./assets/audio/VirtualInsanity.mp3",
   "image":"./assets/images/jamiroquai.jpg"
-  },
-  {
-  "array":["E","A","G","L","E","E","Y","E","C","H","E","R","R","Y"],  
-  "songinfo": "Eagle Eye Cherry - Save Tonight",
-  "audio":"./assets/audio/Eagle.mp3#t=6",
-  "image":"./assets/images/eagleeye.jpg"
   }];    
     
 // key presses will need to filter though alphabet to count as a guess
