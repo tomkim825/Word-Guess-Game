@@ -64,11 +64,11 @@ var random = Math.floor((Math.random()*1.3*(database90s.length-1)));
 var currentWord = database90s[random].array;
 console.log("Answer is " + currentWord.join(""));
 
-// create new array for blanks
-var initialBlanks = new Array(currentWord.length);
+ // create new array for blanks
+  var initialBlanks = new Array(currentWord.length);
 
-// creates blanks for every letter in current word
-for (var i = 0; i < initialBlanks.length; i++){
+  // creates blanks for every letter in current word
+  for (var i = 0; i < initialBlanks.length; i++){
 	initialBlanks[i] = "_ ";
 }
 
@@ -143,24 +143,29 @@ document.addEventListener('keyup', function(event) {
     if(guessesLeft === 0){
       document.getElementById("deadeye1").style.display = "block";
       document.getElementById("deadeye2").style.display = "block";
-      document.getElementById("start").textContent = "GAME OVER"; 
+      document.getElementById("start").textContent = "GAME OVER. Refresh page to play again"; 
       document.getElementById("gameover").style.display = "block";
       audio.src = './assets/audio/chill.mp3';
       audio.play();  
     };
-
-    // if all blanks are answered, you win
+    //**************************************** 
+    // Terminate section: if all blanks are answered, you win
     if(initialBlanks.indexOf("_ ") === -1){
     console.log("you win!");
     wins++;
     document.getElementById("wins").textContent = wins;
     document.getElementById("start").textContent = "You Won! Press ENTER to play Again";
-    // reset guesses left and print to screen
+    // escape back to beginning if they press ENTER
+    document.addEventListener('keyup', function(event) {
+      if (event.key == "Enter"){
+          // reset guesses left and print to screen
     guessesLeft = 10;
     document.getElementById("guessesleft").textContent= guessesLeft;
     // reset wrong guesses and print to screen
     guessed = [];
     document.getElementById("guessed").textContent = guessed + "--"; 
+    // reset initalBlanks/clear the answer
+    initialBlanks = ["_ "];
     // plays audio track of correct song & updates the now playing field
     audio.src = database90s[random].audio;
     audio.play();
@@ -169,6 +174,37 @@ document.addEventListener('keyup', function(event) {
     document.getElementById("nowplayingimage").src = database90s[random].image;
     // picks a new random number/index to later choose artist
     random = Math.floor((Math.random()*(database90s.length-1)));
+    // reassign currentword to new random one
+    currentWord = database90s[random].array;
+    console.log("Answer is " + currentWord.join(""));
+    
+    // create new array for blanks
+    initialBlanks = new Array(currentWord.length);
+    
+    // creates blanks for every letter in current word
+    for (var i = 0; i < initialBlanks.length; i++){
+      initialBlanks[i] = "_ ";
+    }
+
+    // prints the inital blanks into the page
+    document.getElementById("currentword").textContent = initialBlanks;
+    
+    // reset hangman picture
+        document.getElementById("post").style.display = "none";
+        document.getElementById("topcrook").style.display = "none";
+        document.getElementById("noose").style.display = "none";
+        document.getElementById("head").style.display = "none";
+        document.getElementById("body").style.display = "none";
+        document.getElementById("leftarm").style.display = "none";
+        document.getElementById("rightarm").style.display = "none";
+        document.getElementById("leftleg").style.display = "none";
+        document.getElementById("rightleg").style.display = "none";
+    
+
+      }
+    });
+    // event listener for ENTER to reset
+
     }
 // ***************************************
 // end of code block for valid key presses
