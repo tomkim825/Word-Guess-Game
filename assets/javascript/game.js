@@ -21,7 +21,7 @@ var database90s = [{
   {
   "array":["R","E","A","L","M","C","C","O","Y"],
   "songinfo": "Real McCoy - Another Night",
-  "audio":"./assets/audio/mccoy.mp3",
+  "audio":"./assets/audio/McCoy.mp3#t=3",
   "image":"./assets/images/mccoy.jpg"
   },
   {
