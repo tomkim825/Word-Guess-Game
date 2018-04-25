@@ -2,7 +2,7 @@
 
 var database90s = [{
   "array":["M", "C", "H", "A", "M", "M", "E", "R"],
-  "songinfo": "MC Hammer - You Can't Touch This",
+  "songinfo": "MC Hammer - U Can't Touch This",
   "audio":"./assets/audio/hammer.mp3",
   "image":"./assets/images/hammer.jpg"
   },
@@ -112,7 +112,7 @@ document.addEventListener('keyup', function(event) {
     guessesLeft--;
     document.getElementById("guessesleft").textContent = guessesLeft;  
     };
-
+// conditionals to make the hangman appear from initial display:none
     if(guessesLeft === 9){
       document.getElementById("post").style.display = "block";
     };
