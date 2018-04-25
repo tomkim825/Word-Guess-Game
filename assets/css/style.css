@@ -4,19 +4,29 @@ body{
     background-attachment: fixed;
 }
 
-#sideimage{
+#gameover{
+    position:absolute;
+    display:none;
+    top: 25%;
+    left:25%;
+    width: 50%;
+}
+
+#nowplayingimage{
+    width:75px;
+}
+
+#backto90s{
     display:block;
     width:170px; 
     margin:0px auto;
     margin-bottom:-5px;
 }
 #start{
-    width: 360px;
+    text-decoration: underline; 
+    color:red;
+    font-size:72px;
     background-color: black;
-    border-radius: 10px;
-    margin: 0 auto;
-    text-decoration-line: underline;
-    padding:10px;
 }
 
 #bottom{
@@ -77,7 +87,7 @@ p{
 
 #post{
     position:absolute;
-    display:block;
+    display:none;
     top:50px;
     left:50px;
     width:4px;
@@ -88,7 +98,7 @@ p{
 
 #topcrook{
     position:absolute;
-    display:block;
+    display:none;
     top:50px;
     left:50px;
     width:80px;
@@ -98,7 +108,7 @@ p{
 
 #noose{
     position:absolute;
-    display:block;
+    display:none;
     top:50px;
     left:130px;
     width:4px;
@@ -109,7 +119,7 @@ p{
 
 #head{
     position: absolute;
-    display:block;
+    display:none;
     top: 70px;
     left:110px;
     width:50px;
@@ -120,7 +130,7 @@ p{
 
 #body{
     position: absolute;
-    display:block;
+    display:none;
     top: 120px;
     left:130px;
     width:6px;
@@ -130,7 +140,7 @@ p{
 
 #leftarm{
     position: absolute;
-    display:block;
+    display:none;
     top: 135px;
     left:110px;
     width:25px;
@@ -140,7 +150,7 @@ p{
 
 #rightarm{
     position: absolute;
-    display:block;
+    display:none;
     top: 135px;
     left:130px;
     width:25px;
@@ -150,7 +160,7 @@ p{
 
 #rightleg{
     position: absolute;
-    display:block;
+    display:none;
     top: 165px;
     left:130px;
     width:25px;
@@ -161,7 +171,7 @@ p{
 
 #leftleg{
     position: absolute;
-    display:block;
+    display:none;
     top: 165px;
     left:110px;
     width:25px;
@@ -172,7 +182,7 @@ p{
 
 #deadeye1{
     position: absolute;
-    display:block;
+    display:none;
     top: 68px;
     left:120px;
     color: red;
@@ -181,7 +191,7 @@ p{
 
 #deadeye2{
     position: absolute;
-    display:block;
+    display:none;
     top: 68px;
     left:140px;
     color: red;

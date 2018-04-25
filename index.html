@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Word-Guess-Game</title>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -11,30 +10,36 @@
 </head>
 
 <body>
+    <!-- autoplay audio code -->
+    <audio autoplay>
+        <source src="assets/audio/Kick.mp3#t=0,4" type="audio/mpeg">
+    </audio>
+
+      
         <!-- geocities header banner -->
     <h1 style="background-color:darkslategray">
-        <img src="assets/images/spinningearth.gif">
+        <img src="assets/images/spinningearth.gif" alt="90s icon">
         GeoCities - Hangman 
-        <img src="assets/images/spinningearth.gif">
+        <img src="assets/images/spinningearth.gif" alt="90s icon">
     </h1>
     <!-- Jumbotron description of app-->
     <div class="jumbotron">
-        <img src="assets/images/90s.jpg" id=sideimage>
+        <img src="assets/images/90s.jpg" id=backto90s alt="back to the 90s">
         <p>Nostalgia helps us forget the worst part of the 90s: 28K Dial-up, GeoCities pages, and terrible Batman movies.</p>
         <p>Back then, Hangman was a game you could play on a 386 running windows 3.1 </p>
+        <p>The theme for this game is 90s music. (The answer will be a 90s artist)</p>
     </div>        
     
     <br>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="start">
-                  <h2>Press any key to get started!</h2>  
+        <!-- 2 col body for game  -->
+        <div class= "row">
+                <div class="col-md-12">
+                    <h2 id="start">Press ENTER key to start</h2>
                 </div>
-                
-            </div>
         </div>
         <div class="row" style="margin-left:20%">
+            <!-- left column for hangman picture and guesses left -->
             <div class="col-md-6 game" style="background-color: darkgrey" id="leftcol">
                 <div class="row">
                     <div class="col-md-12">
@@ -61,51 +66,55 @@
                     </div>
                 </div>
             </div>
+            <!-- Right column for wins, guessed already, current word -->
             <div class="col-md-6" style="padding:0">
-                   <div class="game" style="padding-top:50px">
+                    <!-- gameover meme. hidden until you lose -->
+                <img src="assets/images/chill.jpg" id="gameover" alt="90s meme">    
+                <div class="game" style="padding-top:10px">
                     <div class= "row">
-                            <div class="col-md-5" style="padding:0">
-                             <h2>Wins:</h2>
-                                <div class="field">
-                                    <h2 id="wins"></h2>
-                                </div>
+                            <div class="col-md-5" style="padding-bottom:10px">
+                                    <h2>Wins:</h2>
+                                    <div class="field">
+                                    <p id="wins"></p>
+                                    </div>
                             </div>
-                            <div class="col-md-7" style="padding:0">
+                            <div class="col-md-7" style="padding-bottom:10px">
                                     <h2>Guessed already:</h2>
-                                       <div class="field">
-                                           <p id="guessed"></p>
-                                       </div>
-                                   </div>       
+                                    <div class="field">
+                                    <p id="guessed"></p>
+                                    </div>
+                            </div>       
                     </div>
-            <h2>Current Word:</h2>
-            <div class="field">
-                <p id="currentword"></p>
+                                    <br>
+                                    <h2>Current Word:</h2>
+                                    <div class="field">
+                                    <p id="currentword"></p>
+                                    </div>
+                                    <br>
+                                    <h2>Now Playing:</h2>
+                                    <div class="field">
+                                    <p id="nowplaying">__</p>
+                                    </div>
+                                    <img id="nowplayingimage" src="" alt="">
+                                    <br>
+                    </div>
             </div>
-            <br>
         </div>
-            </div>
-
-        
-     
-        </div>
+        <!-- Bottom black bar -->
         <div class="row">
-                <div class="col-md-12">
+            <div class="col-md-12">
                 <div id="bottom">
-        <p><img src="assets/images/laptop.gif" width=30px>Best viewed on a monitor with resolution of at least 1024 x 768<img src="assets/images/laptop.gif" width=30px></p>
-    <div style="text-align:center">
-        <img src="assets/images/counter.gif" width=100px>
-        <img src="assets/images/ns_logo.gif" width=100px>
-        <img src="assets/images/ie_logo.gif" width=100px>
-    </div>
+                    <p><img src="assets/images/laptop.gif" width=30px alt="90s icon">Best viewed on a monitor with resolution of at least 1024 x 768<img src="assets/images/laptop.gif" width=30px></p>
+                    <div style="text-align:center">
+                        <img src="assets/images/counter.gif" width=100px alt="90s icon">
+                        <img src="assets/images/ns_logo.gif" width=100px alt="90s icon">
+                        <img src="assets/images/ie_logo.gif" width=100px alt="90s icon">
+                    </div>
                 </div>
-        </div>            
-    </div>
+            </div>                    
+        </div>
     <br>
-    
-  
     </div>
-
    <script src="assets/javascript/game.js"></script>
 </body>
-
 </html>

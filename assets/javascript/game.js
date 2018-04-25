@@ -1,12 +1,53 @@
 // all the words to choose from. 6 artists from the 90s
-var wordList = [
-["M", "C", "H", "A", "M", "M", "E", "R"],
-  ["H","A","D","D","A","W","A","Y"],
-  ["M","A","R","K","Y","M","A","R","K"],
-  ["V","A","N","E","S","S","A","C","A","R","L","T","O","N"],
-    ["J","A","M","I","R","O","Q","U","A","I"],
-    ["N","E","W","R","A","D","I","C","A","L","S"]
-]
+// var wordList = [
+// ["M", "C", "H", "A", "M", "M", "E", "R"],
+//   ["H","A","D","D","A","W","A","Y"],
+//   ["R","E","A","L","M","C","C","O","Y"],
+//   ["V","A","N","E","S","S","A","C","A","R","L","T","O","N"],
+//     ["J","A","M","I","R","O","Q","U","A","I"],
+//     ["E","A","G","L","E","E","Y","E","C","H","E","R","R","Y"]
+// ]
+
+var database90s = [{
+  "array":["M", "C", "H", "A", "M", "M", "E", "R"],
+  "songinfo": "MC Hammer - You Can't Touch This",
+  "audio":"./assets/audio/hammer.mp3",
+  "image":"./assets/images/hammer.jpg"
+  },
+  {
+  "array": ["H","A","D","D","A","W","A","Y"],
+  "songinfo": "Haddaway - What is love?",
+  "audio":"./assets/audio/WhatIsLove.mp3",
+  "image":"./assets/images/haddaway.jpg"
+  },  
+  {
+  "array":["R","E","A","L","M","C","C","O","Y"],
+  "songinfo": "Real McCoy - Another Night",
+  "audio":"./assets/audio/mccoy.mp3#t=2",
+  "image":"./assets/images/mccoy.jpg"
+  },
+  {
+  "array": ["V","A","N","E","S","S","A","C","A","R","L","T","O","N"],
+  "songinfo": "Vanessa Carlton - 1000 miles",
+  "audio":"./assets/audio/1000miles.mp3",
+  "image":"./assets/images/carlton.jpg"
+  }, 
+  {
+  "array":  ["J","A","M","I","R","O","Q","U","A","I"],
+  "songinfo": "Jamiroquai - Virtual Insanity",
+  "audio":"./assets/audio/VirtualInsanity.mp3",
+  "image":"./assets/images/jamiroquai.jpg"
+  },
+  {
+  "array":["E","A","G","L","E","E","Y","E","C","H","E","R","R","Y"],  
+  "songinfo": "Eagle Eye Cherry - Save Tonight",
+  "audio":"./assets/audio/Eagle.mp3#t=6",
+  "image":"./assets/images/eagleeye.jpg"
+  }];    
+    
+// key presses will need to filter though alphabet to count as a guess
+var alphabet = ["a","b","c","d","e","f","g","h","i","j","k",
+  "l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
 // initialize keyPress
 var keyPress = 0;
@@ -14,73 +55,138 @@ var keyPress = 0;
 // initialize wins
 var wins = 0;
 // prints initial wins into the page
-document.getElementById("wins").innerHTML = wins;
+document.getElementById("wins").textContent = wins;
 
-// initialize letters guessed 
-var guessed = new Array();
+// initialize letters guessed & print to page
+var guessed = [];
+document.getElementById("guessed").textContent = guessed + "--";
 
-// initialize guesses left
+// initialize guesses left & print to page
 var guessesLeft = 10;
-// prints initial wins into the page
-document.getElementById("guessesleft").innerHTML = guessesLeft;
+document.getElementById("guessesleft").textContent= guessesLeft;
 
-// picks a random number/index to later choose artist
-var random = Math.floor((Math.random()*(wordList.length-1))); 
+// picks a random number/index to later choose artist. Increased chances of last artist by 10%
+var random = Math.floor((Math.random()*1.1*(database90s.length-1))); 
 
-// artist chosen using random index 
-var currentWord = wordList[random];
-console.log("Answer is " + currentWord);
+// artist chosen using random index. Answer on console log
+var currentWord = database90s[random].array;
+console.log("Answer is " + currentWord.join(""));
 
 // create new array for blanks
-var wordBlanks = new Array(currentWord.length);
+var initialBlanks = new Array(currentWord.length);
 
 // creates blanks for every letter in current word
-for (var i = 0; i < wordBlanks.length; i++){
-	wordBlanks[i] = "_ ";
+for (var i = 0; i < initialBlanks.length; i++){
+	initialBlanks[i] = "_ ";
 }
 
-// prints the blanks into the page
-document.getElementById("currentword").textContent = wordBlanks;
+// prints the inital blanks into the page
+document.getElementById("currentword").textContent = initialBlanks;
 
-// function to respond to key presses & converts to uppercase
+// initial track info
+var nowPlaying = "X-Men Animated Series Theme";
+var audio = new Audio('./assets/audio/xmen.mp3#t=2');
+
+// plays get started video
+// var initialAudio = document.getElementById("mccoy"); 
 document.addEventListener('keyup', function(event) {
-    var keyPress = event.key;
-    var upperCase = keyPress.toUpperCase();
-    console.log(upperCase);
-
-//checks if the the letter provided by the user matches one or more of the letters in the word
-for (var i = 0; i < currentWord.length; i++){
-  if(currentWord[i] === upperCase){
-    wordBlanks[i] = upperCase + " ";
-          document.getElementById("currentword").textContent = wordBlanks;
+  if (event.key == "Enter"){
+  audio.play();
+  document.getElementById("nowplaying").textContent = nowPlaying;
+  document.getElementById("nowplayingimage").src = "assets/images/xmen.jpg";
+  document.getElementById("nowplayingimage").alt = "90s artist";   
+  document.getElementById("start").textContent = "";  
   }
-  else if(currentWord[i] !== upperCase){
-    guessed.push(upperCase);
+});
+// **  ABOVE IS CODE NEEDED FOR INITIAL SETUP OF PAGE **
+// *****************************************************
+// **          BELOW IS ACTUAL GAMEPLAY               **
+
+// function to check if valid alphabet key and convert keypresses to uppercase 
+document.addEventListener('keyup', function(event) {
+    var guess = event.key.toUpperCase();
+    if((alphabet.indexOf(event.key) !== -1) && (guessed.indexOf(event.key.toUpperCase()) == -1)){
+// if valid key pressed, then below code can run
+// **********************************************
+    for (var i = 0; i < currentWord.length; i++) {
+      if(currentWord[i] === guess) {
+        initialBlanks[i] = guess + " ";
+        document.getElementById("currentword").textContent = initialBlanks.join("");
+        var correct = true;
+      }
+    }
+      //  if the word is not correct, it will add it to the guessed field and take off a guesses left
+    if(!correct) {
+    guessed.push(guess);
     document.getElementById("guessed").textContent = guessed;
     guessesLeft--;
-    document.getElementById("guessesleft").textContent = guessesLeft;
-  }
-  }
-if(wordBlanks.indexOf("_ ")===-1){
-  console.log("you win!");
-  wins++;
-  document.getElementById("wins").textContent = wins;
-}
-// closing to line 51
-}, false);
+    document.getElementById("guessesleft").textContent = guessesLeft;  
+    };
+
+    if(guessesLeft === 9){
+      document.getElementById("post").style.display = "block";
+    };
+    if(guessesLeft === 8){
+      document.getElementById("topcrook").style.display = "block";
+    };
+    if(guessesLeft === 7){
+      document.getElementById("noose").style.display = "block";
+    };
+    if(guessesLeft === 6){
+      document.getElementById("head").style.display = "block";
+    };
+    if(guessesLeft === 5){
+      document.getElementById("body").style.display = "block";
+    };
+    if(guessesLeft === 4){
+      document.getElementById("leftarm").style.display = "block";
+    };
+    if(guessesLeft === 3){
+      document.getElementById("rightarm").style.display = "block";
+    };
+    if(guessesLeft === 2){
+      document.getElementById("leftleg").style.display = "block";
+    };
+    if(guessesLeft === 1){
+      document.getElementById("rightleg").style.display = "block";
+    };
+    if(guessesLeft === 0){
+      document.getElementById("deadeye1").style.display = "block";
+      document.getElementById("deadeye2").style.display = "block";
+      document.getElementById("start").textContent = "GAME OVER"; 
+      document.getElementById("gameover").style.display = "block";
+      audio.src = './assets/audio/chill.mp3';
+      audio.play();  
+    };
+
+    // if all blanks are answered, you win
+    if(initialBlanks.indexOf("_ ") === -1){
+    console.log("you win!");
+    wins++;
+    document.getElementById("wins").textContent = wins;
+    document.getElementById("start").textContent = "You Won! Press ENTER to play Again";
+    // reset guesses left and print to screen
+    guessesLeft = 10;
+    document.getElementById("guessesleft").textContent= guessesLeft;
+    // reset wrong guesses and print to screen
+    guessed = [];
+    document.getElementById("guessed").textContent = guessed + "--"; 
+    // plays audio track of correct song & updates the now playing field
+    audio.src = database90s[random].audio;
+    audio.play();
+    nowPlaying = database90s[random].songinfo;
+    document.getElementById("nowplaying").textContent = nowPlaying;
+    document.getElementById("nowplayingimage").src = database90s[random].image;
+    // picks a new random number/index to later choose artist
+    random = Math.floor((Math.random()*(database90s.length-1)));
+    }
+// ***************************************
+// end of code block for valid key presses
+   };
+  });
+
+ 
 
 // document.onkeyup = function(event){
 //     htmlId.textContent = event.key
 // }
-
-
-
-
-
-
-
-// //checks if the the letter provided by the user matches one or more of the letters in the word
-// var pruefeZeichen = function(){
-// 	var f = document.rateformular; 
-// 	var b = f.elements["ratezeichen"]; 
-// 	var zeichen = b.value; // the letter
