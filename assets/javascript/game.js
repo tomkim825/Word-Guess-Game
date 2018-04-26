@@ -174,7 +174,7 @@ document.addEventListener('keyup', function(event) {
     document.getElementById("nowplaying").textContent = nowPlaying;
     document.getElementById("nowplayingimage").src = database90s[random].image;
     // picks a new random number/index for next challenge. increase last answer odds by 10%
-    random = Math.floor((Math.random()*1.1*(database90s.length)));
+    random = Math.floor((Math.random()*1.1*(database90s.length-1)));
     // reassign currentword to new random one
     
     currentWord = database90s[random].array;
