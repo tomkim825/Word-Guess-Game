@@ -114,31 +114,31 @@ document.addEventListener('keyup', function(event) {
     };
 // conditionals to make the hangman appear from initial display:none
     if(guessesLeft === 9){
-      document.getElementById("post").style.display = "block";
+      document.getElementById("post").style.opacity = 1;
     };
     if(guessesLeft === 8){
-      document.getElementById("topcrook").style.display = "block";
+      document.getElementById("topcrook").style.opacity = 1;
     };
     if(guessesLeft === 7){
-      document.getElementById("noose").style.display = "block";
+      document.getElementById("noose").style.opacity = 1;
     };
     if(guessesLeft === 6){
-      document.getElementById("head").style.display = "block";
+      document.getElementById("head").style.opacity = 1;
     };
     if(guessesLeft === 5){
-      document.getElementById("body").style.display = "block";
+      document.getElementById("body").style.opacity = 1;
     };
     if(guessesLeft === 4){
-      document.getElementById("leftarm").style.display = "block";
+      document.getElementById("leftarm").style.opacity = 1;
     };
     if(guessesLeft === 3){
-      document.getElementById("rightarm").style.display = "block";
+      document.getElementById("rightarm").style.opacity = 1;
     };
     if(guessesLeft === 2){
-      document.getElementById("leftleg").style.display = "block";
+      document.getElementById("leftleg").style.opacity = 1;
     };
     if(guessesLeft === 1){
-      document.getElementById("rightleg").style.display = "block";
+      document.getElementById("rightleg").style.opacity = 1;
     };
     if(guessesLeft === 0){
       document.getElementById("deadeye1").style.display = "block";
@@ -157,7 +157,7 @@ document.addEventListener('keyup', function(event) {
     document.getElementById("start").textContent = "You Won! Press ENTER to play Again";
     // escape back to beginning if they press ENTER
     document.addEventListener('keyup', function(event) {
-      if (event.key == "Enter"){
+      if ((event.key == "Enter") && (initialBlanks.indexOf("_ ") === -1)){
           // reset guesses left and print to screen
     guessesLeft = 10;
     document.getElementById("guessesleft").textContent= guessesLeft;
@@ -167,14 +167,16 @@ document.addEventListener('keyup', function(event) {
     // reset initalBlanks/clear the answer
     initialBlanks = ["_ "];
     // plays audio track of correct song & updates the now playing field
+    audio.pause();
     audio.src = database90s[random].audio;
     audio.play();
     nowPlaying = database90s[random].songinfo;
     document.getElementById("nowplaying").textContent = nowPlaying;
     document.getElementById("nowplayingimage").src = database90s[random].image;
-    // picks a new random number/index for next challenge
+    // picks a new random number/index for next challenge. increase last answer odds by 10%
     random = Math.floor((Math.random()*1.1*(database90s.length)));
     // reassign currentword to new random one
+    
     currentWord = database90s[random].array;
     console.log("Answer is " + currentWord.join(""));
     
@@ -190,22 +192,22 @@ document.addEventListener('keyup', function(event) {
     document.getElementById("currentword").textContent = initialBlanks;
     
     // reset hangman picture
-        document.getElementById("post").style.display = "none";
-        document.getElementById("topcrook").style.display = "none";
-        document.getElementById("noose").style.display = "none";
-        document.getElementById("head").style.display = "none";
-        document.getElementById("body").style.display = "none";
-        document.getElementById("leftarm").style.display = "none";
-        document.getElementById("rightarm").style.display = "none";
-        document.getElementById("leftleg").style.display = "none";
-        document.getElementById("rightleg").style.display = "none";
+        document.getElementById("post").style.opacity = 0.1;
+        document.getElementById("topcrook").style.opacity = 0.1;
+        document.getElementById("noose").style.opacity = 0.1;
+        document.getElementById("head").style.opacity = 0.1;
+        document.getElementById("body").style.opacity = 0.1;
+        document.getElementById("leftarm").style.opacity = 0.1;
+        document.getElementById("rightarm").style.opacity = 0.1;
+        document.getElementById("leftleg").style.opacity = 0.1;
+        document.getElementById("rightleg").style.opacity = 0.1;
     
 
-      }
+      } 
     });
-    // end of code bracket for event listener for ENTER to reset
+    // end of code bracket for event listener for you win
 
-    }
+    };
 // ***************************************
 // end of code block for valid key presses
    };

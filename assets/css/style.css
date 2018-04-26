@@ -87,97 +87,97 @@ p{
 
 #post{
     position:absolute;
-    display:none;
     top:50px;
     left:50px;
     width:4px;
     height:135px;
     border: 2px solid yellow;
+    opacity:0.1;
 }
 
 
 #topcrook{
     position:absolute;
-    display:none;
     top:50px;
     left:50px;
     width:80px;
     height:4px;
     border: 2px solid yellow;
+    opacity:0.1;
 }
 
 #noose{
     position:absolute;
-    display:none;
     top:50px;
     left:130px;
     width:4px;
     height:20px;
     border: 2px solid yellow;
+    opacity:0.1;
 }
 
 
 #head{
     position: absolute;
-    display:none;
     top: 70px;
     left:110px;
     width:50px;
     height:50px;
     border-radius: 50%;
     border: 5px solid yellow;
+    opacity:0.1;
 }
 
 #body{
     position: absolute;
-    display:none;
     top: 120px;
     left:130px;
     width:6px;
     height:40px;
     border: 3px solid yellow;
+    opacity:0.1;
 }
 
 #leftarm{
     position: absolute;
-    display:none;
     top: 135px;
     left:110px;
     width:25px;
     height:6px;
     border: 3px solid yellow;
+    opacity:0.1;
 }
 
 #rightarm{
     position: absolute;
-    display:none;
     top: 135px;
     left:130px;
     width:25px;
     height:6px;
     border: 3px solid yellow;
+    opacity:0.1;
 }
 
 #rightleg{
     position: absolute;
-    display:none;
     top: 165px;
     left:130px;
     width:25px;
     height:6px;
     border: 3px solid yellow;
     transform: rotate(45deg);
+    opacity:0.1;
 }
 
 #leftleg{
     position: absolute;
-    display:none;
     top: 165px;
     left:110px;
     width:25px;
     height:6px;
     border: 3px solid yellow;
     transform: rotate(135deg);
+    opacity:0.1;
 }
 
 #deadeye1{
